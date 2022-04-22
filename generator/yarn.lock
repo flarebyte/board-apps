@@ -4636,6 +4636,11 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
+scratchbook@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/scratchbook/-/scratchbook-0.4.1.tgz#bfb1e37285d3ceaddeccc10ab5b399833e01838c"
+  integrity sha512-VeoDozr8NRh5OHZZ5o4cQR6jGyJuShNSWj5LXR6rhrcOJSMsUc6hYyU9au8J4D08lOkaSs3E2+xUthekGYpTAw==
+
 "semver@2 || 3 || 4 || 5":
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
