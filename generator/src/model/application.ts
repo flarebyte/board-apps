@@ -1,9 +1,7 @@
 export interface Ownership {
-  license: string;
-  licenseUrl: string;
+  copyright: string;
   companyName: string;
   companyHomepage: string;
-  domain: string;
 }
 
 export interface AppColumn {
@@ -35,29 +33,30 @@ export interface AppMessage {
   params: AppKey[];
 }
 
-export interface AppAction {
-  name: string;
-  inboundMessage: AppMessage;
-}
-
-type AppTableActionKind = "get" | "update" | "append" | "delete" | "search";
-
-export interface AppTableAction {
-  name: string;
-  inboundMessage: AppMessage;
-  table: AppTable;
-  kind: AppTableActionKind;
-}
+type AppAction =
+  | {
+      name: string;
+      kind: "custom-action";
+      inboundMessage: AppMessage;
+    }
+  | {
+      name: string;
+      inboundMessage: AppMessage;
+      table: AppTable;
+      kind: "get" | "update" | "append" | "delete" | "search";
+    };
 
 export interface AppDocManager {
   name: string;
+  filenameExtension: string;
+  zipFilenameExtension: string;
   document: AppDocument;
   actions: AppAction[];
-  tableActions: AppTableAction[];
 }
 
 export interface WebApplication {
   name: string;
+  domain: string;
   ownership: Ownership;
   docManagers: AppDocManager[];
 }
