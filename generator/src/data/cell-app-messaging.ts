@@ -1,4 +1,5 @@
 import { AppAction, AppKey, AppKeyValidation, AppMessage } from "../model/application";
+import { columnTable } from "./cell-app-table";
 const freeTextCheck: AppKeyValidation = {
   name: "free-text-validation",
 };
@@ -57,6 +58,6 @@ const deleteColumnMsg: AppMessage = {
         name: 'add-column-action',
         kind: 'append',
         inboundMessage: addColumnMsg,
-        table: 
+        table: columnTable
       
   }

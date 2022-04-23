@@ -1,83 +1,15 @@
 import {
-  AppColumn,
   AppDocManager,
   AppDocument,
-  AppTable,
   Ownership,
   WebApplication,
 } from "../model/application";
+import { columnTable, rowTable, horizonTable, cellTable } from "./cell-app-table";
 
 const ownership: Ownership = {
   copyright: "(c) 2022 Flarebyte.com Ltd",
   companyName: "Flarebyte.com Ltd",
   companyHomepage: "https://flarebyte.com",
-};
-
-const dimColumns: AppColumn[] = [
-  {
-    name: "id",
-  },
-  {
-    name: "title",
-  },
-  {
-    name: "description",
-  },
-  {
-    name: "comment",
-  },
-  {
-    name: "homepage",
-  },
-];
-
-const columnTable: AppTable = {
-  name: "column-table",
-  columns: [
-    ...dimColumns,
-    {
-      name: "unit",
-    },
-    {
-      name: "media-type",
-    },
-  ],
-};
-
-const rowTable: AppTable = {
-  name: "row-table",
-  columns: dimColumns,
-};
-
-const horizonTable: AppTable = {
-  name: "horizon-table",
-  columns: dimColumns,
-};
-const cellTable: AppTable = {
-  name: "cell-table",
-  columns: [
-    {
-      name: "column-id",
-    },
-    {
-      name: "row-id",
-    },
-    {
-      name: "horizon-id",
-    },
-    {
-      name: "text",
-    },
-    {
-      name: "unit",
-    },
-    {
-      name: "media-type",
-    },
-    {
-      name: "comment",
-    },
-  ],
 };
 
 const cellDoc: AppDocument = {
