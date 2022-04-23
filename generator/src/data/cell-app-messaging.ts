@@ -1,5 +1,4 @@
-import { AppAction, AppKey, AppKeyValidation, AppMessage } from "../model/application";
-import { columnTable } from "./cell-app-table";
+import { AppKey, AppKeyValidation, AppMessage } from "../model/application";
 const freeTextCheck: AppKeyValidation = {
   name: "free-text-validation",
 };
@@ -28,7 +27,7 @@ const dimColumnParams: AppKey[] = [
   { name: "comment", multiple: false, validation: freeTextCheck },
   { name: "homepage", multiple: false, validation: urlCheck },
 ];
-const addColumnMsg: AppMessage = {
+export const addColumnMsg: AppMessage = {
   name: "add-column-message",
   routing,
   headers: [],
@@ -54,10 +53,3 @@ const deleteColumnMsg: AppMessage = {
     ],
   };
 
-  const addColumnAction: AppAction = {
-        name: 'add-column-action',
-        kind: 'append',
-        inboundMessage: addColumnMsg,
-        table: columnTable
-      
-  }

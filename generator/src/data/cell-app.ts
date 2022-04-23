@@ -4,6 +4,7 @@ import {
   Ownership,
   WebApplication,
 } from "../model/application";
+import { addColumnAction } from "./cell-app-action";
 import { columnTable, rowTable, horizonTable, cellTable } from "./cell-app-table";
 
 const ownership: Ownership = {
@@ -22,7 +23,7 @@ const cellDocManager: AppDocManager = {
   filenameExtension: "cell.json",
   zipFilenameExtension: "cell.json.gz",
   document: cellDoc,
-  actions: [],
+  actions: [addColumnAction],
 };
 
 export const easyCellApp: WebApplication = {
