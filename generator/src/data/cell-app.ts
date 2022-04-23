@@ -33,16 +33,6 @@ const dimColumns: AppColumn[] = [
 
 const columnTable: AppTable = {
   name: "column-table",
-  columns: dimColumns,
-};
-
-const rowTable: AppTable = {
-  name: "row-table",
-  columns: dimColumns,
-};
-
-const horizonTable: AppTable = {
-  name: "horizon-table",
   columns: [
     ...dimColumns,
     {
@@ -52,6 +42,16 @@ const horizonTable: AppTable = {
       name: "media-type",
     },
   ],
+};
+
+const rowTable: AppTable = {
+  name: "row-table",
+  columns: dimColumns,
+};
+
+const horizonTable: AppTable = {
+  name: "horizon-table",
+  columns: dimColumns,
 };
 const cellTable: AppTable = {
   name: "cell-table",
@@ -84,6 +84,7 @@ const cellDoc: AppDocument = {
   name: "cell-doc",
   tables: [columnTable, rowTable, horizonTable, cellTable],
 };
+
 const cellDocManager: AppDocManager = {
   name: "cell-doc-manager",
   filenameExtension: "cell.json",

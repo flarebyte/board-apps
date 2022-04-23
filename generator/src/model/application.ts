@@ -33,7 +33,7 @@ export interface AppMessage {
   params: AppKey[];
 }
 
-type AppAction =
+export type AppAction =
   | {
       name: string;
       kind: "custom-action";
