@@ -18,13 +18,13 @@ const dimColumns: AppColumn[] = [
     name: "id",
   },
   {
-    name: "uuid",
-  },
-  {
     name: "title",
   },
   {
     name: "description",
+  },
+  {
+    name: "comment",
   },
   {
     name: "homepage",
@@ -48,11 +48,36 @@ const horizonTable: AppTable = {
     {
       name: "unit",
     },
+    {
+      name: "media-type",
+    },
   ],
 };
 const cellTable: AppTable = {
   name: "cell-table",
-  columns: [],
+  columns: [
+    {
+      name: "column-id",
+    },
+    {
+      name: "row-id",
+    },
+    {
+      name: "horizon-id",
+    },
+    {
+      name: "text",
+    },
+    {
+      name: "unit",
+    },
+    {
+      name: "media-type",
+    },
+    {
+      name: "comment",
+    },
+  ],
 };
 
 const cellDoc: AppDocument = {
