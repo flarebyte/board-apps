@@ -34,7 +34,7 @@ export const addColumnMsg: AppMessage = {
   params: [...dimColumnParams],
 };
 
-const updateColumnMsg: AppMessage = {
+export const updateColumnMsg: AppMessage = {
   name: "update-column-message",
   routing,
   headers: [],
@@ -44,12 +44,9 @@ const updateColumnMsg: AppMessage = {
   ],
 };
 
-const deleteColumnMsg: AppMessage = {
-    name: "delete-column-message",
-    routing,
-    headers: [],
-    params: [
-      { name: "id", multiple: false, validation: idCheck },
-    ],
-  };
-
+export const deleteColumnMsg: AppMessage = {
+  name: "delete-column-message",
+  routing,
+  headers: [],
+  params: [{ name: "id", multiple: false, validation: idCheck }],
+};
