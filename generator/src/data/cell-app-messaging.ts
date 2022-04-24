@@ -28,12 +28,24 @@ const dimRowParams: AppKey[] = [
   { name: "homepage", multiple: false, validation: urlCheck },
 ];
 
-
 const dimColumnParams: AppKey[] = [
   ...dimRowParams,
   { name: "unit", multiple: false, validation: shortTextCheck },
   { name: "media-type", multiple: false, validation: shortTextCheck },
-]
+];
+
+const dimCellParams: AppKey[] = [
+  { name: "text", multiple: false, validation: freeTextCheck },
+  { name: "comment", multiple: false, validation: freeTextCheck },
+  { name: "unit", multiple: false, validation: shortTextCheck },
+  { name: "media-type", multiple: false, validation: shortTextCheck },
+];
+
+const dimCellIdsParams: AppKey[] = [
+  { name: "column-id", multiple: false, validation: idCheck },
+  { name: "row-id", multiple: false, validation: idCheck },
+  { name: "horizon-id", multiple: false, validation: idCheck },
+];
 export const addColumnMsg: AppMessage = {
   name: "add-column-message",
   routing,
@@ -104,4 +116,18 @@ export const deleteHorizonMsg: AppMessage = {
   routing,
   headers: [],
   params: [{ name: "id", multiple: false, validation: idCheck }],
+};
+
+export const updateCellMsg: AppMessage = {
+  name: "update-cell-message",
+  routing,
+  headers: [],
+  params: [...dimCellParams, ...dimCellIdsParams],
+};
+
+export const deleteCellMsg: AppMessage = {
+  name: "delete-cell-message",
+  routing,
+  headers: [],
+  params: [...dimCellIdsParams],
 };

@@ -1,12 +1,14 @@
 import { AppAction } from "../model/application";
-import { columnTable, rowTable } from "./cell-app-table";
+import { cellTable, columnTable, horizonTable, rowTable } from "./cell-app-table";
 import {
   addColumnMsg,
   addHorizonMsg,
   addRowMsg,
+  deleteCellMsg,
   deleteColumnMsg,
   deleteHorizonMsg,
   deleteRowMsg,
+  updateCellMsg,
   updateColumnMsg,
   updateHorizonMsg,
   updateRowMsg,
@@ -56,18 +58,31 @@ export const addHorizonAction: AppAction = {
   name: "add-horizon-action",
   kind: "append",
   inboundMessage: addHorizonMsg,
-  table: rowTable,
+  table: horizonTable,
 };
 
 export const updateHorizonAction: AppAction = {
   name: "update-horizon-action",
   kind: "update",
   inboundMessage: updateHorizonMsg,
-  table: rowTable,
+  table: horizonTable,
 };
 export const deleteHorizonAction: AppAction = {
   name: "delete-horizon-action",
   kind: "update",
   inboundMessage: deleteHorizonMsg,
-  table: rowTable,
+  table: horizonTable,
+};
+
+export const updateCellAction: AppAction = {
+  name: "update-cell-action",
+  kind: "update",
+  inboundMessage: updateCellMsg,
+  table: cellTable,
+};
+export const deleteCellAction: AppAction = {
+  name: "delete-cell-action",
+  kind: "update",
+  inboundMessage: deleteCellMsg,
+  table: cellTable,
 };
