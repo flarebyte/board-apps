@@ -81,3 +81,27 @@ export const deleteRowMsg: AppMessage = {
   headers: [],
   params: [{ name: "id", multiple: false, validation: idCheck }],
 };
+
+export const addHorizonMsg: AppMessage = {
+  name: "add-horizon-message",
+  routing,
+  headers: [],
+  params: [...dimRowParams],
+};
+
+export const updateHorizonMsg: AppMessage = {
+  name: "update-horizon-message",
+  routing,
+  headers: [],
+  params: [
+    ...dimRowParams,
+    { name: "id", multiple: false, validation: idCheck },
+  ],
+};
+
+export const deleteHorizonMsg: AppMessage = {
+  name: "delete-horizon-message",
+  routing,
+  headers: [],
+  params: [{ name: "id", multiple: false, validation: idCheck }],
+};
