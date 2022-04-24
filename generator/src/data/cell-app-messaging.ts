@@ -21,17 +21,24 @@ const routing: AppKey[] = [
   { name: "action", multiple: false, validation: actionCheck },
 ];
 
-const dimColumnParams: AppKey[] = [
+const dimRowParams: AppKey[] = [
   { name: "title", multiple: false, validation: shortTextCheck },
   { name: "description", multiple: false, validation: freeTextCheck },
   { name: "comment", multiple: false, validation: freeTextCheck },
   { name: "homepage", multiple: false, validation: urlCheck },
 ];
+
+
+const dimColumnParams: AppKey[] = [
+  ...dimRowParams,
+  { name: "unit", multiple: false, validation: shortTextCheck },
+  { name: "media-type", multiple: false, validation: shortTextCheck },
+]
 export const addColumnMsg: AppMessage = {
   name: "add-column-message",
   routing,
   headers: [],
-  params: [...dimColumnParams],
+  params: dimColumnParams,
 };
 
 export const updateColumnMsg: AppMessage = {
@@ -46,6 +53,30 @@ export const updateColumnMsg: AppMessage = {
 
 export const deleteColumnMsg: AppMessage = {
   name: "delete-column-message",
+  routing,
+  headers: [],
+  params: [{ name: "id", multiple: false, validation: idCheck }],
+};
+
+export const addRowMsg: AppMessage = {
+  name: "add-row-message",
+  routing,
+  headers: [],
+  params: [...dimRowParams],
+};
+
+export const updateRowMsg: AppMessage = {
+  name: "update-row-message",
+  routing,
+  headers: [],
+  params: [
+    ...dimRowParams,
+    { name: "id", multiple: false, validation: idCheck },
+  ],
+};
+
+export const deleteRowMsg: AppMessage = {
+  name: "delete-row-message",
   routing,
   headers: [],
   params: [{ name: "id", multiple: false, validation: idCheck }],

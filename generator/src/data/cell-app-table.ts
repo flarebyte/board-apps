@@ -1,6 +1,6 @@
 import { AppColumn, AppTable } from "../model/application";
 
-const dimColumns: AppColumn[] = [
+const dimRow: AppColumn[] = [
     {
         name: "id",
     },
@@ -20,7 +20,7 @@ const dimColumns: AppColumn[] = [
 export const columnTable: AppTable = {
     name: "column-table",
     columns: [
-        ...dimColumns,
+        ...dimRow,
         {
             name: "unit",
         },
@@ -31,11 +31,11 @@ export const columnTable: AppTable = {
 };
 export const rowTable: AppTable = {
     name: "row-table",
-    columns: dimColumns,
+    columns: dimRow,
 };
 export const horizonTable: AppTable = {
     name: "horizon-table",
-    columns: dimColumns,
+    columns: dimRow,
 };
 export const cellTable: AppTable = {
     name: "cell-table",
