@@ -36,14 +36,14 @@ export interface AppMessage {
 export type AppAction =
   | {
       name: string;
-      kind: "custom-action";
+      kind: 'custom-action';
       inboundMessage: AppMessage;
     }
   | {
       name: string;
       inboundMessage: AppMessage;
       table: AppTable;
-      kind: "get" | "update" | "append" | "delete" | "search";
+      kind: 'get' | 'update' | 'append' | 'delete' | 'search';
     };
 
 export interface AppDocManager {

@@ -1,5 +1,5 @@
 const generate = async () => {
-  console.log("Starting generation ...");
+  console.log('Starting generation ...');
 };
 
 await generate();

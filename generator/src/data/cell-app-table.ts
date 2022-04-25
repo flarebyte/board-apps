@@ -1,65 +1,65 @@
-import { AppColumn, AppTable } from "../model/application";
+import { AppColumn, AppTable } from '../model/application';
 
 const dimRow: AppColumn[] = [
   {
-    name: "id",
+    name: 'id',
   },
   {
-    name: "title",
+    name: 'title',
   },
   {
-    name: "description",
+    name: 'description',
   },
   {
-    name: "comment",
+    name: 'comment',
   },
   {
-    name: "homepage",
+    name: 'homepage',
   },
 ];
 const columnTable: AppTable = {
-  name: "column-table",
+  name: 'column-table',
   columns: [
     ...dimRow,
     {
-      name: "unit",
+      name: 'unit',
     },
     {
-      name: "media-type",
+      name: 'media-type',
     },
   ],
 };
 const rowTable: AppTable = {
-  name: "row-table",
+  name: 'row-table',
   columns: dimRow,
 };
 const horizonTable: AppTable = {
-  name: "horizon-table",
+  name: 'horizon-table',
   columns: dimRow,
 };
 const cellTable: AppTable = {
-  name: "cell-table",
+  name: 'cell-table',
   columns: [
     {
-      name: "column-id",
+      name: 'column-id',
     },
     {
-      name: "row-id",
+      name: 'row-id',
     },
     {
-      name: "horizon-id",
+      name: 'horizon-id',
     },
     {
-      name: "text",
+      name: 'text',
     },
     {
-      name: "unit",
+      name: 'unit',
     },
     {
-      name: "media-type",
+      name: 'media-type',
     },
     {
-      name: "comment",
+      name: 'comment',
     },
   ],
 };
