@@ -4,7 +4,7 @@ import { messages } from './cell-app-message';
 
 const addColumn: AppAction = {
   name: 'add-column-action',
-  kind: 'append',
+  kind: 'add',
   inboundMessage: messages.addColumn,
   table: tables.column,
 };
@@ -25,7 +25,7 @@ const deleteColumn: AppAction = {
 
 const addRow: AppAction = {
   name: 'add-row-action',
-  kind: 'append',
+  kind: 'add',
   inboundMessage: messages.addRow,
   table: tables.row,
 };
@@ -45,7 +45,7 @@ const deleteRow: AppAction = {
 
 const addHorizon: AppAction = {
   name: 'add-horizon-action',
-  kind: 'append',
+  kind: 'add',
   inboundMessage: messages.addHorizon,
   table: tables.horizon,
 };

@@ -43,7 +43,7 @@ export type AppAction =
       name: string;
       inboundMessage: AppMessage;
       table: AppTable;
-      kind: 'get' | 'update' | 'append' | 'delete' | 'search';
+      kind: 'get' | 'update' | 'add' | 'delete' | 'search';
     };
 
 export interface AppDocManager {

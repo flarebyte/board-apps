@@ -5,25 +5,29 @@ describe('cell-app-action', () => {
   it.each(['column', 'row', 'horizon', 'cell'])(
     'should use consistent naming convention for name %s',
     (name) => {
-      const relevantMessages = keyActions.filter(
+      const relevantActions = keyActions.filter(
         (kv) => kv[0].toLowerCase().includes(name)
       );
-      expect(relevantMessages.length).toBeGreaterThanOrEqual(2);
-      for (const [_, message] of relevantMessages) {
-        expect(message.name).toContain(name);
-        expect(message.name).toContain('-action');
+      expect(relevantActions.length).toBeGreaterThanOrEqual(2);
+      for (const [_, action] of relevantActions) {
+        expect(action.name).toContain(name);
+        expect(action.inboundMessage.name).toContain(name);
+        expect(action.name).toContain('-action');
+        expect(action.table.name).toContain(name);
       }
     }
   );
   it.each(['add', 'update', 'delete'])(
     'should use consistent naming convention for operation %s',
     (name) => {
-      const relevantMessages = keyActions.filter(
+      const relevantActions = keyActions.filter(
         (kv) => kv[0].toLowerCase().includes(name)
       );
-      expect(relevantMessages.length).toBeGreaterThanOrEqual(2);
-      for (const [_, message] of relevantMessages) {
-        expect(message.name).toContain(name);
+      expect(relevantActions.length).toBeGreaterThanOrEqual(2);
+      for (const [_, action] of relevantActions) {
+        expect(action.name).toContain(name);
+        expect(action.inboundMessage.name).toContain(name);
+        expect(action.kind).toStrictEqual(name);
       }
     }
   );
