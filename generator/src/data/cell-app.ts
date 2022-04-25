@@ -5,7 +5,12 @@ import {
   WebApplication,
 } from "../model/application";
 import { addColumnAction } from "./cell-app-action";
-import { columnTable, rowTable, horizonTable, cellTable } from "./cell-app-table";
+import {
+  columnTable,
+  rowTable,
+  horizonTable,
+  cellTable,
+} from "./cell-app-table";
 
 const ownership: Ownership = {
   copyright: "(c) 2022 Flarebyte.com Ltd",

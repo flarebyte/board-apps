@@ -46,14 +46,14 @@ const dimCellIdsParams: AppKey[] = [
   { name: "row-id", multiple: false, validation: idCheck },
   { name: "horizon-id", multiple: false, validation: idCheck },
 ];
-export const addColumnMsg: AppMessage = {
+const addColumn: AppMessage = {
   name: "add-column-message",
   routing,
   headers: [],
   params: dimColumnParams,
 };
 
-export const updateColumnMsg: AppMessage = {
+const updateColumn: AppMessage = {
   name: "update-column-message",
   routing,
   headers: [],
@@ -63,21 +63,21 @@ export const updateColumnMsg: AppMessage = {
   ],
 };
 
-export const deleteColumnMsg: AppMessage = {
+const deleteColumn: AppMessage = {
   name: "delete-column-message",
   routing,
   headers: [],
   params: [{ name: "id", multiple: false, validation: idCheck }],
 };
 
-export const addRowMsg: AppMessage = {
+const addRow: AppMessage = {
   name: "add-row-message",
   routing,
   headers: [],
   params: [...dimRowParams],
 };
 
-export const updateRowMsg: AppMessage = {
+const updateRow: AppMessage = {
   name: "update-row-message",
   routing,
   headers: [],
@@ -87,21 +87,21 @@ export const updateRowMsg: AppMessage = {
   ],
 };
 
-export const deleteRowMsg: AppMessage = {
+const deleteRow: AppMessage = {
   name: "delete-row-message",
   routing,
   headers: [],
   params: [{ name: "id", multiple: false, validation: idCheck }],
 };
 
-export const addHorizonMsg: AppMessage = {
+const addHorizon: AppMessage = {
   name: "add-horizon-message",
   routing,
   headers: [],
   params: [...dimRowParams],
 };
 
-export const updateHorizonMsg: AppMessage = {
+const updateHorizon: AppMessage = {
   name: "update-horizon-message",
   routing,
   headers: [],
@@ -111,23 +111,37 @@ export const updateHorizonMsg: AppMessage = {
   ],
 };
 
-export const deleteHorizonMsg: AppMessage = {
+const deleteHorizon: AppMessage = {
   name: "delete-horizon-message",
   routing,
   headers: [],
   params: [{ name: "id", multiple: false, validation: idCheck }],
 };
 
-export const updateCellMsg: AppMessage = {
+const updateCell: AppMessage = {
   name: "update-cell-message",
   routing,
   headers: [],
   params: [...dimCellParams, ...dimCellIdsParams],
 };
 
-export const deleteCellMsg: AppMessage = {
+const deleteCell: AppMessage = {
   name: "delete-cell-message",
   routing,
   headers: [],
   params: [...dimCellIdsParams],
+};
+
+export const messages = {
+  addColumn,
+  updateColumn,
+  deleteColumn,
+  addRow,
+  updateRow,
+  deleteRow,
+  addHorizon,
+  updateHorizon,
+  deleteHorizon,
+  updateCell,
+  deleteCell,
 };
