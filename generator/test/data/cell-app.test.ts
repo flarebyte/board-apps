@@ -1,7 +1,3 @@
-import { messages } from '../../src/data/cell-app-message';
-
 describe('cell-app', () => {
-  it('produce correct applications', () => {
-    expect(messages).toMatchInlineSnapshot('');
-  });
+  it.todo('produce the correct applications');
 });
