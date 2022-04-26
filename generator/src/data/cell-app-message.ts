@@ -17,6 +17,10 @@ const actionCheck: AppKeyValidation = {
   name: 'action-validation',
 };
 
+const filenameCheck: AppKeyValidation = {
+  name: 'filename-validation',
+};
+
 const routing: AppKey[] = [
   { name: 'action', multiple: false, validation: actionCheck },
 ];
@@ -70,6 +74,13 @@ const deleteColumn: AppMessage = {
   params: [{ name: 'id', multiple: false, validation: idCheck }],
 };
 
+const getColumn: AppMessage = {
+  name: 'get-column-message',
+  routing,
+  headers: [],
+  params: [{ name: 'id', multiple: false, validation: idCheck }],
+};
+
 const addRow: AppMessage = {
   name: 'add-row-message',
   routing,
@@ -89,6 +100,13 @@ const updateRow: AppMessage = {
 
 const deleteRow: AppMessage = {
   name: 'delete-row-message',
+  routing,
+  headers: [],
+  params: [{ name: 'id', multiple: false, validation: idCheck }],
+};
+
+const getRow: AppMessage = {
+  name: 'get-row-message',
   routing,
   headers: [],
   params: [{ name: 'id', multiple: false, validation: idCheck }],
@@ -118,6 +136,13 @@ const deleteHorizon: AppMessage = {
   params: [{ name: 'id', multiple: false, validation: idCheck }],
 };
 
+const getHorizon: AppMessage = {
+  name: 'get-horizon-message',
+  routing,
+  headers: [],
+  params: [{ name: 'id', multiple: false, validation: idCheck }],
+};
+
 const updateCell: AppMessage = {
   name: 'update-cell-message',
   routing,
@@ -132,16 +157,35 @@ const deleteCell: AppMessage = {
   params: [...dimCellIdsParams],
 };
 
+const getCell: AppMessage = {
+  name: 'get-cell-message',
+  routing,
+  headers: [],
+  params: [...dimCellIdsParams],
+};
+
+const importJsonFormat: AppMessage = {
+  name: 'import-json-format',
+  routing,
+  headers: [],
+  params: [{ name: 'filename', multiple: false, validation: filenameCheck }],
+};
+
 export const messages = {
   addColumn,
   updateColumn,
   deleteColumn,
+  getColumn,
   addRow,
   updateRow,
   deleteRow,
+  getRow,
   addHorizon,
   updateHorizon,
   deleteHorizon,
+  getHorizon,
   updateCell,
   deleteCell,
+  getCell,
+  importJsonFormat,
 };

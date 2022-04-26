@@ -22,6 +22,12 @@ const deleteColumn: AppAction = {
   inboundMessage: messages.deleteColumn,
   table: tables.column,
 };
+const getColumn: AppAction = {
+  name: 'get-column-action',
+  kind: 'get',
+  inboundMessage: messages.getColumn,
+  table: tables.column,
+};
 
 const addRow: AppAction = {
   name: 'add-row-action',
@@ -40,6 +46,12 @@ const deleteRow: AppAction = {
   name: 'delete-row-action',
   kind: 'delete',
   inboundMessage: messages.deleteRow,
+  table: tables.row,
+};
+const getRow: AppAction = {
+  name: 'get-row-action',
+  kind: 'get',
+  inboundMessage: messages.getRow,
   table: tables.row,
 };
 
@@ -62,7 +74,12 @@ const deleteHorizon: AppAction = {
   inboundMessage: messages.deleteHorizon,
   table: tables.horizon,
 };
-
+const getHorizon: AppAction = {
+  name: 'get-horizon-action',
+  kind: 'get',
+  inboundMessage: messages.getHorizon,
+  table: tables.horizon,
+};
 const updateCell: AppAction = {
   name: 'update-cell-action',
   kind: 'update',
@@ -76,16 +93,33 @@ const deleteCell: AppAction = {
   table: tables.cell,
 };
 
+const getCell: AppAction = {
+  name: 'get-cell-action',
+  kind: 'get',
+  inboundMessage: messages.getCell,
+  table: tables.cell,
+};
+
+const importJsonFormat: AppAction = {
+  name: 'import-cell-format-action',
+  kind: 'custom-action',
+  inboundMessage: messages.importJsonFormat,
+};
 export const actions = {
   addColumn,
   updateColumn,
   deleteColumn,
+  getColumn,
   addRow,
   updateRow,
   deleteRow,
+  getRow,
   addHorizon,
   updateHorizon,
   deleteHorizon,
+  getHorizon,
   updateCell,
   deleteCell,
+  getCell,
+  importJsonFormat,
 };

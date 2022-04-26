@@ -6,22 +6,25 @@ describe('cell-app-action', () => {
     'should use consistent naming convention for name %s',
     (name) => {
       const relevantActions = keyActions.filter(
-        (kv) => kv[0].toLowerCase().includes(name)
+        (kv) =>
+          kv[0].toLowerCase().includes(name) && kv[1].kind !== 'custom-action'
       );
       expect(relevantActions.length).toBeGreaterThanOrEqual(2);
       for (const [_, action] of relevantActions) {
         expect(action.name).toContain(name);
         expect(action.inboundMessage.name).toContain(name);
         expect(action.name).toContain('-action');
-        expect(action.table.name).toContain(name);
+        if (action.kind !== 'custom-action') {
+          expect(action.table.name).toContain(name);
+        }
       }
     }
   );
-  it.each(['add', 'update', 'delete'])(
+  it.each(['add', 'update', 'delete', 'get'])(
     'should use consistent naming convention for operation %s',
     (name) => {
-      const relevantActions = keyActions.filter(
-        (kv) => kv[0].toLowerCase().includes(name)
+      const relevantActions = keyActions.filter((kv) =>
+        kv[0].toLowerCase().includes(name)
       );
       expect(relevantActions.length).toBeGreaterThanOrEqual(2);
       for (const [_, action] of relevantActions) {

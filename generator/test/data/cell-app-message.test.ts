@@ -15,7 +15,7 @@ describe('cell-app-message', () => {
       }
     }
   );
-  it.each(['add', 'update', 'delete'])(
+  it.each(['add', 'update', 'delete', 'get'])(
     'should use consistent naming convention for operation %s',
     (name) => {
       const relevantMessages = keyMessages.filter(
