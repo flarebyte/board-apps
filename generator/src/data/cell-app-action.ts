@@ -29,6 +29,13 @@ const getColumn: AppAction = {
   table: tables.column,
 };
 
+const searchColumn: AppAction = {
+  name: 'search-column-action',
+  kind: 'search',
+  inboundMessage: messages.searchColumn,
+  table: tables.column,
+};
+
 const addRow: AppAction = {
   name: 'add-row-action',
   kind: 'add',
@@ -52,6 +59,13 @@ const getRow: AppAction = {
   name: 'get-row-action',
   kind: 'get',
   inboundMessage: messages.getRow,
+  table: tables.row,
+};
+
+const searchRow: AppAction = {
+  name: 'search-row-action',
+  kind: 'search',
+  inboundMessage: messages.searchRow,
   table: tables.row,
 };
 
@@ -80,6 +94,13 @@ const getHorizon: AppAction = {
   inboundMessage: messages.getHorizon,
   table: tables.horizon,
 };
+
+const searchHorizon: AppAction = {
+  name: 'search-horizon-action',
+  kind: 'search',
+  inboundMessage: messages.searchHorizon,
+  table: tables.horizon,
+};
 const updateCell: AppAction = {
   name: 'update-cell-action',
   kind: 'update',
@@ -100,6 +121,13 @@ const getCell: AppAction = {
   table: tables.cell,
 };
 
+const searchCell: AppAction = {
+  name: 'search-cell-action',
+  kind: 'search',
+  inboundMessage: messages.searchCell,
+  table: tables.cell,
+};
+
 const importJsonFormat: AppAction = {
   name: 'import-cell-format-action',
   kind: 'custom-action',
@@ -110,16 +138,20 @@ export const actions = {
   updateColumn,
   deleteColumn,
   getColumn,
+  searchColumn,
   addRow,
   updateRow,
   deleteRow,
   getRow,
+  searchRow,
   addHorizon,
   updateHorizon,
   deleteHorizon,
   getHorizon,
+  searchHorizon,
   updateCell,
   deleteCell,
   getCell,
+  searchCell,
   importJsonFormat,
 };

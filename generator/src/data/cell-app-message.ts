@@ -21,6 +21,11 @@ const filenameCheck: AppKeyValidation = {
   name: 'filename-validation',
 };
 
+const importJsonModeCheck: AppKeyValidation = {
+  name: 'import-json-mode-validation',
+  choices: ['everything', 'column', 'row', 'horizon'],
+};
+
 const routing: AppKey[] = [
   { name: 'action', multiple: false, validation: actionCheck },
 ];
@@ -81,6 +86,12 @@ const getColumn: AppMessage = {
   params: [{ name: 'id', multiple: false, validation: idCheck }],
 };
 
+const searchColumn: AppMessage = {
+  name: 'search-column-message',
+  routing,
+  headers: [],
+  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
+};
 const addRow: AppMessage = {
   name: 'add-row-message',
   routing,
@@ -110,6 +121,13 @@ const getRow: AppMessage = {
   routing,
   headers: [],
   params: [{ name: 'id', multiple: false, validation: idCheck }],
+};
+
+const searchRow: AppMessage = {
+  name: 'search-row-message',
+  routing,
+  headers: [],
+  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
 };
 
 const addHorizon: AppMessage = {
@@ -143,6 +161,13 @@ const getHorizon: AppMessage = {
   params: [{ name: 'id', multiple: false, validation: idCheck }],
 };
 
+const searchHorizon: AppMessage = {
+  name: 'search-horizon-message',
+  routing,
+  headers: [],
+  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
+};
+
 const updateCell: AppMessage = {
   name: 'update-cell-message',
   routing,
@@ -164,11 +189,21 @@ const getCell: AppMessage = {
   params: [...dimCellIdsParams],
 };
 
+const searchCell: AppMessage = {
+  name: 'search-cell-message',
+  routing,
+  headers: [],
+  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
+};
+
 const importJsonFormat: AppMessage = {
   name: 'import-json-format',
   routing,
   headers: [],
-  params: [{ name: 'filename', multiple: false, validation: filenameCheck }],
+  params: [
+    { name: 'filename', multiple: false, validation: filenameCheck },
+    { name: 'mode', multiple: true, validation: importJsonModeCheck },
+  ],
 };
 
 export const messages = {
@@ -176,16 +211,20 @@ export const messages = {
   updateColumn,
   deleteColumn,
   getColumn,
+  searchColumn,
   addRow,
   updateRow,
   deleteRow,
   getRow,
+  searchRow,
   addHorizon,
   updateHorizon,
   deleteHorizon,
   getHorizon,
+  searchHorizon,
   updateCell,
   deleteCell,
   getCell,
+  searchCell,
   importJsonFormat,
 };

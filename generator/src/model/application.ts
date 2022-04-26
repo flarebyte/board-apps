@@ -19,6 +19,7 @@ export interface AppDocument {
 
 export interface AppKeyValidation {
   name: string;
+  choices?: string[];
 }
 export interface AppKey {
   name: string;
