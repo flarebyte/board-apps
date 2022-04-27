@@ -1,59 +1,33 @@
-import { AppKey, AppKeyValidation, AppMessage } from '../model/application';
-const freeTextCheck: AppKeyValidation = {
-  name: 'free-text-validation',
-};
-
-const shortTextCheck: AppKeyValidation = {
-  name: 'short-text-validation',
-};
-const idCheck: AppKeyValidation = {
-  name: 'idt-validation',
-};
-const urlCheck: AppKeyValidation = {
-  name: 'url-validation',
-};
-
-const actionCheck: AppKeyValidation = {
-  name: 'action-validation',
-};
-
-const filenameCheck: AppKeyValidation = {
-  name: 'filename-validation',
-};
-
-const importJsonModeCheck: AppKeyValidation = {
-  name: 'import-json-mode-validation',
-  choices: ['everything', 'column', 'row', 'horizon'],
-};
-
+import { AppKey, AppMessage } from '../model/application';
+import { validations } from './freeText';
 const routing: AppKey[] = [
-  { name: 'action', multiple: false, validation: actionCheck },
+  { name: 'action', multiple: false, validation: validations.action },
 ];
 
 const dimRowParams: AppKey[] = [
-  { name: 'title', multiple: false, validation: shortTextCheck },
-  { name: 'description', multiple: false, validation: freeTextCheck },
-  { name: 'comment', multiple: false, validation: freeTextCheck },
-  { name: 'homepage', multiple: false, validation: urlCheck },
+  { name: 'title', multiple: false, validation: validations.shortText },
+  { name: 'description', multiple: false, validation: validations.freeText },
+  { name: 'comment', multiple: false, validation: validations.freeText },
+  { name: 'homepage', multiple: false, validation: validations.url },
 ];
 
 const dimColumnParams: AppKey[] = [
   ...dimRowParams,
-  { name: 'unit', multiple: false, validation: shortTextCheck },
-  { name: 'media-type', multiple: false, validation: shortTextCheck },
+  { name: 'unit', multiple: false, validation: validations.shortText },
+  { name: 'media-type', multiple: false, validation: validations.shortText },
 ];
 
 const dimCellParams: AppKey[] = [
-  { name: 'text', multiple: false, validation: freeTextCheck },
-  { name: 'comment', multiple: false, validation: freeTextCheck },
-  { name: 'unit', multiple: false, validation: shortTextCheck },
-  { name: 'media-type', multiple: false, validation: shortTextCheck },
+  { name: 'text', multiple: false, validation: validations.freeText },
+  { name: 'comment', multiple: false, validation: validations.freeText },
+  { name: 'unit', multiple: false, validation: validations.shortText },
+  { name: 'media-type', multiple: false, validation: validations.shortText },
 ];
 
 const dimCellIdsParams: AppKey[] = [
-  { name: 'column-id', multiple: false, validation: idCheck },
-  { name: 'row-id', multiple: false, validation: idCheck },
-  { name: 'horizon-id', multiple: false, validation: idCheck },
+  { name: 'column-id', multiple: false, validation: validations.identifier },
+  { name: 'row-id', multiple: false, validation: validations.identifier },
+  { name: 'horizon-id', multiple: false, validation: validations.identifier },
 ];
 const addColumn: AppMessage = {
   name: 'add-column-message',
@@ -68,7 +42,7 @@ const updateColumn: AppMessage = {
   headers: [],
   params: [
     ...dimColumnParams,
-    { name: 'id', multiple: false, validation: idCheck },
+    { name: 'id', multiple: false, validation: validations.identifier },
   ],
 };
 
@@ -76,21 +50,21 @@ const deleteColumn: AppMessage = {
   name: 'delete-column-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: idCheck }],
+  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
 };
 
 const getColumn: AppMessage = {
   name: 'get-column-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: idCheck }],
+  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
 };
 
 const searchColumn: AppMessage = {
   name: 'search-column-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
+  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
 };
 const addRow: AppMessage = {
   name: 'add-row-message',
@@ -105,7 +79,7 @@ const updateRow: AppMessage = {
   headers: [],
   params: [
     ...dimRowParams,
-    { name: 'id', multiple: false, validation: idCheck },
+    { name: 'id', multiple: false, validation: validations.identifier },
   ],
 };
 
@@ -113,21 +87,21 @@ const deleteRow: AppMessage = {
   name: 'delete-row-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: idCheck }],
+  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
 };
 
 const getRow: AppMessage = {
   name: 'get-row-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: idCheck }],
+  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
 };
 
 const searchRow: AppMessage = {
   name: 'search-row-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
+  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
 };
 
 const addHorizon: AppMessage = {
@@ -143,7 +117,7 @@ const updateHorizon: AppMessage = {
   headers: [],
   params: [
     ...dimRowParams,
-    { name: 'id', multiple: false, validation: idCheck },
+    { name: 'id', multiple: false, validation: validations.identifier },
   ],
 };
 
@@ -151,21 +125,21 @@ const deleteHorizon: AppMessage = {
   name: 'delete-horizon-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: idCheck }],
+  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
 };
 
 const getHorizon: AppMessage = {
   name: 'get-horizon-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: idCheck }],
+  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
 };
 
 const searchHorizon: AppMessage = {
   name: 'search-horizon-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
+  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
 };
 
 const updateCell: AppMessage = {
@@ -193,7 +167,7 @@ const searchCell: AppMessage = {
   name: 'search-cell-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: shortTextCheck }],
+  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
 };
 
 const importJsonFormat: AppMessage = {
@@ -201,8 +175,8 @@ const importJsonFormat: AppMessage = {
   routing,
   headers: [],
   params: [
-    { name: 'filename', multiple: false, validation: filenameCheck },
-    { name: 'mode', multiple: true, validation: importJsonModeCheck },
+    { name: 'filename', multiple: false, validation: validations.filename },
+    { name: 'mode', multiple: true, validation: validations.importJsonMode },
   ],
 };
 

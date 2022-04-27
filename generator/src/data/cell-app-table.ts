@@ -1,3 +1,4 @@
+import { createScratchNote, ScratchBook } from 'scratchbook';
 import { AppColumn, AppTable } from '../model/application';
 
 const dimRow: AppColumn[] = [
@@ -69,4 +70,27 @@ export const tables = {
   row: rowTable,
   horizon: horizonTable,
   cell: cellTable,
+};
+
+const tableList = [columnTable, rowTable, horizonTable, cellTable];
+
+const createDescriptionNote = (appTable: AppTable) =>
+  createScratchNote(
+    `table/${appTable.name}/description`,
+    `A table representing the metadata for a ${appTable.name} in the spreadsheet`
+  );
+
+const createFieldDescriptionNote = (appTable: AppTable, appColumn: AppColumn) =>
+  createScratchNote(
+    `table-field/${appTable.name}/${appColumn.name}/description`,
+    `A field representing a ${appColumn.name} in the table ${appTable.name}`
+  );
+
+const tableDescriptions = tableList.map(createDescriptionNote);
+
+const tableFieldDescriptions = tableList.flatMap((table) =>
+  table.columns.map((col) => createFieldDescriptionNote(table, col))
+);
+export const tableScratchBook: ScratchBook = {
+  notes: [...tableDescriptions, ...tableFieldDescriptions],
 };
