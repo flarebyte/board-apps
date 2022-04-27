@@ -1,3 +1,4 @@
+import { createScratchNote, ScratchBook } from 'scratchbook';
 import { AppKeyValidation } from '../model/application';
 
 const freeText: AppKeyValidation = {
@@ -29,5 +30,25 @@ export const validations = {
   url,
   action,
   filename,
-  importJsonMode
+  importJsonMode,
+};
+
+const createDescriptionNote = (
+  appKeyValidation: AppKeyValidation,
+  text: string
+) =>
+  createScratchNote(
+    `key-validation/${appKeyValidation.name}/description`,
+    text
+  );
+export const validationScratchBook: ScratchBook = {
+  notes: [
+    createDescriptionNote(validations.action, 'action'),
+    createDescriptionNote(validations.filename, 'filename'),
+    createDescriptionNote(validations.freeText, 'action'),
+    createDescriptionNote(validations.identifier, 'action'),
+    createDescriptionNote(validations.importJsonMode, 'everything, column, row, horizon'),
+    createDescriptionNote(validations.shortText, 'action'),
+    createDescriptionNote(validations.url, 'action'),
+  ],
 };

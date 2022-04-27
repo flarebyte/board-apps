@@ -1,5 +1,5 @@
 import { AppKey, AppMessage } from '../model/application';
-import { validations } from './freeText';
+import { validations } from './cell-app-validation';
 const routing: AppKey[] = [
   { name: 'action', multiple: false, validation: validations.action },
 ];
