@@ -36,4 +36,12 @@ describe('cell-app-action', () => {
       }
     }
   );
+  it('should use consistent naming convention for custom actions', () => {
+    const relevantActions = keyActions.filter(
+      (kv) => kv[1].kind === 'custom-action'
+    );
+    for (const [_, action] of relevantActions) {
+      expect(action.inboundMessage.action).toStrictEqual(action.name);
+    }
+  });
 });

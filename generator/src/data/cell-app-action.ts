@@ -168,9 +168,21 @@ const searchCell: AppAction = {
 };
 
 const importJsonFormat: AppAction = {
-  name: 'import-cell-format-action',
+  name: 'import-json-format-action',
   kind: 'custom-action',
   inboundMessage: messages.importJsonFormat,
+};
+
+const exportJsonFormat: AppAction = {
+  name: 'export-json-format-action',
+  kind: 'custom-action',
+  inboundMessage: messages.exportJsonFormat,
+};
+
+const exportCsvFormat: AppAction = {
+  name: 'export-csv-format-action',
+  kind: 'custom-action',
+  inboundMessage: messages.exportCsvFormat,
 };
 export const actions = {
   addColumn,
@@ -199,4 +211,6 @@ export const actions = {
   getCell,
   searchCell,
   importJsonFormat,
+  exportJsonFormat,
+  exportCsvFormat,
 };
