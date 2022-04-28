@@ -4,12 +4,21 @@ export interface Ownership {
   companyHomepage: string;
 }
 
+export type AppColumnFlag =
+  | 'optional'
+  | 'remote-source'
+  | 'calculated'
+  | 'searchable'
+  | 'searchable-by-field';
 export interface AppColumn {
   name: string;
+  flags?: AppColumnFlag[];
 }
 
+export type AppTableFlag = 'one-row';
 export interface AppTable {
   name: string;
+  flags?: AppTableFlag;
   columns: AppColumn[];
 }
 export interface AppDocument {
@@ -20,9 +29,11 @@ export interface AppDocument {
 export interface AppKeyValidation {
   name: string;
 }
+
+export type AppKeyFlag = 'multiple' | 'optional';
 export interface AppKey {
   name: string;
-  multiple: boolean;
+  flags?: AppKeyFlag[];
   validation: AppKeyValidation;
 }
 

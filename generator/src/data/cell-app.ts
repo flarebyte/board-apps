@@ -15,7 +15,18 @@ const ownership: Ownership = {
 
 const cellDoc: AppDocument = {
   name: 'cell-doc',
-  tables: [tables.column, tables.row, tables.horizon, tables.cell],
+  tables: [
+    tables.column,
+    tables.row,
+    tables.horizon,
+    tables.cell,
+    tables.metadata,
+  ],
+};
+
+const profileDoc: AppDocument = {
+  name: 'profile-doc',
+  tables: [tables.preference],
 };
 
 const cellDocManager: AppDocManager = {
@@ -33,21 +44,32 @@ const cellDocManager: AppDocManager = {
     actions.addHorizon,
     actions.updateHorizon,
     actions.deleteHorizon,
+    actions.updateMetadata,
+    actions.deleteMetadata,
+    actions.getMetadata,
     actions.updateCell,
     actions.deleteCell,
   ],
+};
+
+const profileDocManager: AppDocManager = {
+  name: 'profile-doc-manager',
+  filenameExtension: 'profile.json',
+  zipFilenameExtension: 'profile.json.gz',
+  document: profileDoc,
+  actions: [],
 };
 
 export const easyCellApp: WebApplication = {
   name: 'easy-cell-app',
   domain: 'easy-cell.flarebyte.com',
   ownership,
-  docManagers: [cellDocManager],
+  docManagers: [cellDocManager, profileDocManager],
 };
 
 export const premiumCellApp: WebApplication = {
   name: 'premium-cell-app',
   domain: 'cell.flarebyte.com',
   ownership,
-  docManagers: [cellDocManager],
+  docManagers: [cellDocManager, profileDocManager],
 };

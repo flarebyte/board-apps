@@ -1,33 +1,107 @@
 import { AppKey, AppMessage } from '../model/application';
 import { validations } from './cell-app-validation';
-const routing: AppKey[] = [
-  { name: 'action', multiple: false, validation: validations.action },
-];
+const routing: AppKey[] = [{ name: 'action', validation: validations.action }];
 
 const dimRowParams: AppKey[] = [
-  { name: 'title', multiple: false, validation: validations.shortText },
-  { name: 'description', multiple: false, validation: validations.freeText },
-  { name: 'comment', multiple: false, validation: validations.freeText },
-  { name: 'homepage', multiple: false, validation: validations.url },
+  { name: 'title', validation: validations.shortText },
+  { name: 'description', validation: validations.freeText },
+  { name: 'comment', validation: validations.freeText },
+  { name: 'homepage', validation: validations.url },
 ];
 
 const dimColumnParams: AppKey[] = [
   ...dimRowParams,
-  { name: 'unit', multiple: false, validation: validations.shortText },
-  { name: 'media-type', multiple: false, validation: validations.shortText },
+  { name: 'unit', validation: validations.shortText, flags: ['optional'] },
+  {
+    name: 'media-type',
+    validation: validations.shortText,
+    flags: ['optional'],
+  },
 ];
 
 const dimCellParams: AppKey[] = [
-  { name: 'text', multiple: false, validation: validations.freeText },
-  { name: 'comment', multiple: false, validation: validations.freeText },
-  { name: 'unit', multiple: false, validation: validations.shortText },
-  { name: 'media-type', multiple: false, validation: validations.shortText },
+  { name: 'text', validation: validations.freeText, flags: ['optional'] },
+  { name: 'comment', validation: validations.freeText, flags: ['optional'] },
+  { name: 'unit', validation: validations.shortText, flags: ['optional'] },
+  {
+    name: 'media-type',
+    validation: validations.shortText,
+    flags: ['optional'],
+  },
 ];
 
 const dimCellIdsParams: AppKey[] = [
-  { name: 'column-id', multiple: false, validation: validations.identifier },
-  { name: 'row-id', multiple: false, validation: validations.identifier },
-  { name: 'horizon-id', multiple: false, validation: validations.identifier },
+  { name: 'column-id', validation: validations.identifier },
+  { name: 'row-id', validation: validations.identifier },
+  { name: 'horizon-id', validation: validations.identifier },
+];
+
+const dimMetadataParams: AppKey[] = [
+  {
+    name: 'id-urn',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'account-urn',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'content-url',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'title',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'description',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'license-name',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'license-url',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'author-name',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'author-url',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'attribution-name',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'homepage-url',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'repository-url',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
+  {
+    name: 'copyright-year',
+    flags: ['optional'],
+    validation: validations.shortText,
+  },
 ];
 const addColumn: AppMessage = {
   name: 'add-column-message',
@@ -36,35 +110,33 @@ const addColumn: AppMessage = {
   params: dimColumnParams,
 };
 
+const dimId = { name: 'id', validation: validations.identifier };
 const updateColumn: AppMessage = {
   name: 'update-column-message',
   routing,
   headers: [],
-  params: [
-    ...dimColumnParams,
-    { name: 'id', multiple: false, validation: validations.identifier },
-  ],
+  params: [...dimColumnParams, dimId],
 };
 
 const deleteColumn: AppMessage = {
   name: 'delete-column-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
+  params: [dimId],
 };
 
 const getColumn: AppMessage = {
   name: 'get-column-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
+  params: [dimId],
 };
 
 const searchColumn: AppMessage = {
   name: 'search-column-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
+  params: [{ name: 'text', validation: validations.shortText }],
 };
 const addRow: AppMessage = {
   name: 'add-row-message',
@@ -77,31 +149,28 @@ const updateRow: AppMessage = {
   name: 'update-row-message',
   routing,
   headers: [],
-  params: [
-    ...dimRowParams,
-    { name: 'id', multiple: false, validation: validations.identifier },
-  ],
+  params: [...dimRowParams, dimId],
 };
 
 const deleteRow: AppMessage = {
   name: 'delete-row-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
+  params: [dimId],
 };
 
 const getRow: AppMessage = {
   name: 'get-row-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
+  params: [dimId],
 };
 
 const searchRow: AppMessage = {
   name: 'search-row-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
+  params: [{ name: 'text', validation: validations.shortText }],
 };
 
 const addHorizon: AppMessage = {
@@ -115,31 +184,49 @@ const updateHorizon: AppMessage = {
   name: 'update-horizon-message',
   routing,
   headers: [],
-  params: [
-    ...dimRowParams,
-    { name: 'id', multiple: false, validation: validations.identifier },
-  ],
+  params: [...dimRowParams, dimId],
 };
 
 const deleteHorizon: AppMessage = {
   name: 'delete-horizon-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
+  params: [dimId],
 };
 
 const getHorizon: AppMessage = {
   name: 'get-horizon-message',
   routing,
   headers: [],
-  params: [{ name: 'id', multiple: false, validation: validations.identifier }],
+  params: [dimId],
 };
 
 const searchHorizon: AppMessage = {
   name: 'search-horizon-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
+  params: [{ name: 'text', validation: validations.shortText }],
+};
+
+const updateMetadata: AppMessage = {
+  name: 'update-metadata-message',
+  routing,
+  headers: [],
+  params: [...dimMetadataParams],
+};
+
+const deleteMetadata: AppMessage = {
+  name: 'delete-metadata-message',
+  routing,
+  headers: [],
+  params: [...dimMetadataParams],
+};
+
+const getMetadata: AppMessage = {
+  name: 'get-metadata-message',
+  routing,
+  headers: [],
+  params: [],
 };
 
 const updateCell: AppMessage = {
@@ -167,7 +254,7 @@ const searchCell: AppMessage = {
   name: 'search-cell-message',
   routing,
   headers: [],
-  params: [{ name: 'text', multiple: false, validation: validations.shortText }],
+  params: [{ name: 'text', validation: validations.shortText }],
 };
 
 const importJsonFormat: AppMessage = {
@@ -175,8 +262,53 @@ const importJsonFormat: AppMessage = {
   routing,
   headers: [],
   params: [
-    { name: 'filename', multiple: false, validation: validations.filename },
-    { name: 'mode', multiple: true, validation: validations.importJsonMode },
+    { name: 'filename', validation: validations.filename },
+    {
+      name: 'mode',
+      validation: validations.importJsonMode,
+      flags: ['multiple'],
+    },
+  ],
+};
+
+const exportJsonFormat: AppMessage = {
+  name: 'export-json-format',
+  routing,
+  headers: [],
+  params: [
+    { name: 'filename', validation: validations.filename },
+    {
+      name: 'mode',
+      validation: validations.importJsonMode,
+      flags: ['multiple'],
+    },
+  ],
+};
+
+const exportCsvFormat: AppMessage = {
+  name: 'export-csv-format',
+  routing,
+  headers: [],
+  params: [
+    { name: 'filename', validation: validations.filename },
+    {
+      name: 'mode',
+      validation: validations.importJsonMode,
+      flags: ['multiple'],
+    },
+  ],
+};
+
+const publishTelemetry: AppMessage = {
+  name: 'publish-telemetry',
+  routing,
+  headers: [],
+  params: [
+    {
+      name: 'mode',
+      validation: validations.telemetryMode,
+      flags: ['multiple'],
+    },
   ],
 };
 
@@ -200,5 +332,11 @@ export const messages = {
   deleteCell,
   getCell,
   searchCell,
+  updateMetadata,
+  deleteMetadata,
+  getMetadata,
   importJsonFormat,
+  exportJsonFormat,
+  exportCsvFormat,
+  publishTelemetry,
 };

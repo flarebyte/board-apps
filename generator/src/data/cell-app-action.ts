@@ -101,6 +101,26 @@ const searchHorizon: AppAction = {
   inboundMessage: messages.searchHorizon,
   table: tables.horizon,
 };
+
+const updateMetadata: AppAction = {
+  name: 'update-metadata-action',
+  kind: 'update',
+  inboundMessage: messages.updateMetadata,
+  table: tables.metadata,
+};
+const deleteMetadata: AppAction = {
+  name: 'delete-metadata-action',
+  kind: 'delete',
+  inboundMessage: messages.deleteMetadata,
+  table: tables.metadata,
+};
+const getMetadata: AppAction = {
+  name: 'get-metadata-action',
+  kind: 'get',
+  inboundMessage: messages.getMetadata,
+  table: tables.metadata,
+};
+
 const updateCell: AppAction = {
   name: 'update-cell-action',
   kind: 'update',
@@ -149,6 +169,9 @@ export const actions = {
   deleteHorizon,
   getHorizon,
   searchHorizon,
+  updateMetadata,
+  deleteMetadata,
+  getMetadata,
   updateCell,
   deleteCell,
   getCell,

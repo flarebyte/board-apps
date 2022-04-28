@@ -23,6 +23,10 @@ const importJsonMode: AppKeyValidation = {
   name: 'import-json-mode-validation',
 };
 
+const telemetryMode: AppKeyValidation = {
+  name: 'telemetry-mode',
+};
+
 export const validations = {
   freeText,
   shortText,
@@ -31,6 +35,7 @@ export const validations = {
   action,
   filename,
   importJsonMode,
+  telemetryMode,
 };
 
 const createDescriptionNote = (
@@ -47,8 +52,12 @@ export const validationScratchBook: ScratchBook = {
     createDescriptionNote(validations.filename, 'filename'),
     createDescriptionNote(validations.freeText, 'action'),
     createDescriptionNote(validations.identifier, 'action'),
-    createDescriptionNote(validations.importJsonMode, 'everything, column, row, horizon'),
+    createDescriptionNote(
+      validations.importJsonMode,
+      'everything, column, row, horizon'
+    ),
     createDescriptionNote(validations.shortText, 'action'),
     createDescriptionNote(validations.url, 'action'),
+    createDescriptionNote(validations.telemetryMode, 'telemetry'),
   ],
 };
