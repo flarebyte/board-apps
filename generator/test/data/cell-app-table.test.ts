@@ -1,5 +1,10 @@
-import { tables } from '../../src/data/cell-app-table';
+import { filterScratchBook, withExactly } from 'scratchbook';
+import { tables, tableScratchBook } from '../../src/data/cell-app-table';
 import { undash } from './testing-utility';
+
+const searchDescriptionByName = (name: string) =>
+  filterScratchBook(withExactly(`table/${name}/description`))(tableScratchBook)
+    .notes;
 
 describe('cell-app-tables', () => {
   const keyTables = Object.entries(tables);
@@ -9,6 +14,9 @@ describe('cell-app-tables', () => {
         key.toLocaleLowerCase()
       );
     }
+  });
+  it.each(keyTables)('should have description for %s', (_, table) => {
+    expect(searchDescriptionByName(table.name)).toHaveLength(1);
   });
   it('produce correct tables', () => {
     expect(tables).toMatchInlineSnapshot(`
