@@ -8,7 +8,7 @@ const shortText: AppKeyValidation = {
   name: 'short-text-validation',
 };
 const identifier: AppKeyValidation = {
-  name: 'idt-validation',
+  name: 'identifier-validation',
 };
 const url: AppKeyValidation = {
   name: 'url-validation',
