@@ -1,5 +1,14 @@
-import { validations } from '../../src/data/cell-app-validation';
+import { filterScratchBook, withExactly } from 'scratchbook';
+import {
+  validations,
+  validationScratchBook,
+} from '../../src/data/cell-app-validation';
 import { undash } from './testing-utility';
+
+const searchDescriptionByName = (name: string) =>
+  filterScratchBook(withExactly(`key-validation/${name}/description`))(
+    validationScratchBook
+  ).notes;
 
 describe('cell-app-validation', () => {
   const keyValidations = Object.entries(validations);
@@ -9,5 +18,8 @@ describe('cell-app-validation', () => {
         key.toLocaleLowerCase()
       );
     }
+  });
+  it.each(keyValidations)('should have description for %s', (_, validation) => {
+    expect(searchDescriptionByName(validation.name)).toHaveLength(1);
   });
 });
