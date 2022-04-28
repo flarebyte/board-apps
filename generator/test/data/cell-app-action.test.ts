@@ -1,7 +1,15 @@
 import { actions } from '../../src/data/cell-app-action';
+import { undash } from './testing-utility';
 
 describe('cell-app-action', () => {
   const keyActions = Object.entries(actions);
+  it('should have consistent keys and names', () => {
+    for (const [key, action] of keyActions) {
+      expect(undash(action.name).toLocaleLowerCase()).toContain(
+        key.toLocaleLowerCase()
+      );
+    }
+  });
   it.each(['column', 'row', 'horizon', 'cell', 'metadata', 'preference'])(
     'should use consistent naming convention for name %s',
     (name) => {

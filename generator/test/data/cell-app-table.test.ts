@@ -1,6 +1,15 @@
 import { tables } from '../../src/data/cell-app-table';
+import { undash } from './testing-utility';
 
 describe('cell-app-tables', () => {
+  const keyTables = Object.entries(tables);
+  it('should have consistent keys and names', () => {
+    for (const [key, table] of keyTables) {
+      expect(undash(table.name).toLocaleLowerCase()).toContain(
+        key.toLocaleLowerCase()
+      );
+    }
+  });
   it('produce correct tables', () => {
     expect(tables).toMatchInlineSnapshot(`
       Object {
