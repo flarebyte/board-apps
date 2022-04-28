@@ -121,6 +121,25 @@ const getMetadata: AppAction = {
   table: tables.metadata,
 };
 
+const updatePreference: AppAction = {
+  name: 'update-preference-action',
+  kind: 'update',
+  inboundMessage: messages.updatePreference,
+  table: tables.preference,
+};
+const deletePreference: AppAction = {
+  name: 'delete-preference-action',
+  kind: 'delete',
+  inboundMessage: messages.deletePreference,
+  table: tables.preference,
+};
+const getPreference: AppAction = {
+  name: 'get-preference-action',
+  kind: 'get',
+  inboundMessage: messages.getPreference,
+  table: tables.preference,
+};
+
 const updateCell: AppAction = {
   name: 'update-cell-action',
   kind: 'update',
@@ -172,6 +191,9 @@ export const actions = {
   updateMetadata,
   deleteMetadata,
   getMetadata,
+  updatePreference,
+  deletePreference,
+  getPreference,
   updateCell,
   deleteCell,
   getCell,
