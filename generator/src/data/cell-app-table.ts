@@ -137,7 +137,7 @@ const preferenceTable: AppTable = {
   name: 'preference-table',
   columns: [
     {
-      name: 'theme',
+      name: 'theme-urn',
       flags: ['optional'],
     },
   ],

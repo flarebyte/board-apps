@@ -39,8 +39,7 @@ export interface AppKey {
 
 export interface AppMessage {
   name: string;
-  routing: AppKey[];
-  headers: AppKey[];
+  action: string;
   params: AppKey[];
 }
 
