@@ -1,40 +1,10 @@
 import { createScratchNote, ScratchBook } from 'scratchbook';
 import { AppColumn, AppTable } from '../model/application';
+import { columns, dimRow } from './cell-app-table-key';
 
-const dimRow: AppColumn[] = [
-  {
-    name: 'id',
-  },
-  {
-    name: 'title',
-    flags: ['searchable'],
-  },
-  {
-    name: 'description',
-    flags: ['optional', 'searchable'],
-  },
-  {
-    name: 'comment',
-    flags: ['optional', 'searchable'],
-  },
-  {
-    name: 'homepage',
-    flags: ['optional'],
-  },
-];
 const columnTable: AppTable = {
   name: 'column-table',
-  columns: [
-    ...dimRow,
-    {
-      name: 'unit',
-      flags: ['optional', 'searchable-by-field'],
-    },
-    {
-      name: 'media-type',
-      flags: ['optional', 'searchable-by-field'],
-    },
-  ],
+  columns: [...dimRow, columns.unit, columns.mediaType],
 };
 const rowTable: AppTable = {
   name: 'row-table',
@@ -47,100 +17,53 @@ const horizonTable: AppTable = {
 const cellTable: AppTable = {
   name: 'cell-table',
   columns: [
-    {
-      name: 'column-id',
-    },
-    {
-      name: 'row-id',
-    },
-    {
-      name: 'horizon-id',
-    },
-    {
-      name: 'text',
-      flags: ['searchable'],
-    },
-    {
-      name: 'unit',
-      flags: ['optional', 'searchable-by-field'],
-    },
-    {
-      name: 'media-type',
-      flags: ['optional', 'searchable-by-field'],
-    },
-    {
-      name: 'comment',
-      flags: ['optional', 'searchable'],
-    },
+    columns.columnId,
+    columns.rowId,
+    columns.horizonId,
+    columns.text,
+    columns.unit,
+    columns.mediaType,
+    columns.comment,
   ],
 };
 
 const metadataTable: AppTable = {
   name: 'metadata-table',
   columns: [
-    {
-      name: 'id-urn',
-      flags: ['optional'],
-    },
-    {
-      name: 'account-urn',
-      flags: ['optional'],
-    },
-    {
-      name: 'content-url',
-      flags: ['optional'],
-    },
-    {
-      name: 'title',
-      flags: ['optional'],
-    },
-    {
-      name: 'description',
-      flags: ['optional'],
-    },
-    {
-      name: 'license-name',
-      flags: ['optional'],
-    },
-    {
-      name: 'license-url',
-      flags: ['optional'],
-    },
-    {
-      name: 'author-name',
-      flags: ['optional'],
-    },
-    {
-      name: 'author-url',
-      flags: ['optional'],
-    },
-    {
-      name: 'attribution-name',
-      flags: ['optional'],
-    },
-    {
-      name: 'homepage-url',
-      flags: ['optional'],
-    },
-    {
-      name: 'repository-url',
-      flags: ['optional'],
-    },
-    {
-      name: 'copyright-year',
-      flags: ['optional'],
-    },
+    columns.idUrn,
+    columns.accountUrn,
+    columns.title,
+    columns.description,
+    columns.contentUrl,
+    columns.licenseName,
+    columns.licenseUrl,
+    columns.authorName,
+    columns.authorUrl,
+    columns.attributionName,
+    columns.homepageUrl,
+    columns.repositoryUrl,
+    columns.copyrightYear,
   ],
 };
 
 const preferenceTable: AppTable = {
   name: 'preference-table',
+  columns: [columns.themeUrn],
+};
+
+const questTable: AppTable = {
+  name: 'quest-table',
   columns: [
-    {
-      name: 'theme-urn',
-      flags: ['optional'],
-    },
+    columns.idUrn,
+    columns.accountUrn,
+    columns.title,
+    columns.topicUrnList,
   ],
+};
+
+const topicTable: AppTable = {
+  name: 'topic-table',
+  columns: [columns.idUrn, columns.title],
 };
 
 export const tables = {
@@ -150,6 +73,8 @@ export const tables = {
   cell: cellTable,
   metadata: metadataTable,
   preference: preferenceTable,
+  quest: questTable,
+  topic: topicTable,
 };
 
 const tableList = [
@@ -159,6 +84,8 @@ const tableList = [
   cellTable,
   metadataTable,
   preferenceTable,
+  questTable,
+  topicTable,
 ];
 
 const createDescriptionNote = (appTable: AppTable) =>

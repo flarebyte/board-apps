@@ -29,6 +29,11 @@ const profileDoc: AppDocument = {
   tables: [tables.preference],
 };
 
+const questDoc: AppDocument = {
+  name: 'quest-doc',
+  tables: [tables.quest, tables.topic],
+};
+
 const cellDocManager: AppDocManager = {
   name: 'cell-doc-manager',
   filenameExtension: 'cell.json',
@@ -60,6 +65,14 @@ const profileDocManager: AppDocManager = {
   actions: [],
 };
 
+const questDocManager: AppDocManager = {
+  name: 'quest-doc-manager',
+  filenameExtension: 'quest.json',
+  zipFilenameExtension: 'quest.json.gz',
+  document: questDoc,
+  actions: [],
+};
+
 export const easyCellApp: WebApplication = {
   name: 'easy-cell-app',
   domain: 'easy-cell.flarebyte.com',
@@ -71,5 +84,5 @@ export const premiumCellApp: WebApplication = {
   name: 'premium-cell-app',
   domain: 'cell.flarebyte.com',
   ownership,
-  docManagers: [cellDocManager, profileDocManager],
+  docManagers: [cellDocManager, profileDocManager, questDocManager],
 };

@@ -1,115 +1,50 @@
 import { AppKey, AppMessage } from '../model/application';
+import { messageKeys } from './cell-app-message-key';
 import { validations } from './cell-app-validation';
 
 const dimRowParams: AppKey[] = [
-  { name: 'title', validation: validations.shortText },
-  { name: 'description', validation: validations.freeText },
-  { name: 'comment', validation: validations.freeText },
-  { name: 'homepage', validation: validations.url },
+  messageKeys.title,
+  messageKeys.description,
+  messageKeys.comment,
+  messageKeys.homepage,
 ];
 
 const dimColumnParams: AppKey[] = [
   ...dimRowParams,
-  { name: 'unit', validation: validations.shortText, flags: ['optional'] },
-  {
-    name: 'media-type',
-    validation: validations.shortText,
-    flags: ['optional'],
-  },
+  messageKeys.unit,
+  messageKeys.mediaType,
 ];
 
 const dimCellParams: AppKey[] = [
-  { name: 'text', validation: validations.freeText, flags: ['optional'] },
-  { name: 'comment', validation: validations.freeText, flags: ['optional'] },
-  { name: 'unit', validation: validations.shortText, flags: ['optional'] },
-  {
-    name: 'media-type',
-    validation: validations.shortText,
-    flags: ['optional'],
-  },
+  messageKeys.text,
+  messageKeys.comment,
+  messageKeys.unit,
+  messageKeys.mediaType,
 ];
 
 const dimCellIdsParams: AppKey[] = [
-  { name: 'column-id', validation: validations.identifier },
-  { name: 'row-id', validation: validations.identifier },
-  { name: 'horizon-id', validation: validations.identifier },
+  messageKeys.columnId,
+  messageKeys.rowId,
+  messageKeys.horizonId,
 ];
 
 const dimMetadataParams: AppKey[] = [
-  {
-    name: 'id-urn',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'account-urn',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'content-url',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'title',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'description',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'license-name',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'license-url',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'author-name',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'author-url',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'attribution-name',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'homepage-url',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'repository-url',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-  {
-    name: 'copyright-year',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
+  messageKeys.idUrn,
+  messageKeys.accountUrn,
+  messageKeys.contentUrl,
+  messageKeys.title,
+  messageKeys.description,
+  messageKeys.licenseName,
+  messageKeys.licenseUrl,
+  messageKeys.authorName,
+  messageKeys.authorUrl,
+  messageKeys.attributionName,
+  messageKeys.homepageUrl,
+  messageKeys.repositoryUrl,
+  messageKeys.copyrightYear,
 ];
 
-const dimPreferenceParams: AppKey[] = [
-  {
-    name: 'theme-urn',
-    flags: ['optional'],
-    validation: validations.shortText,
-  },
-];
+const dimPreferenceParams: AppKey[] = [messageKeys.themeUrn];
 const addColumn: AppMessage = {
   name: 'add-column-message',
   action: 'add-column-action',
