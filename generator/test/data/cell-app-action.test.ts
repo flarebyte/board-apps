@@ -1,5 +1,5 @@
 import { actions } from '../../src/data/cell-app-action';
-import { undash } from './testing-utility';
+import { keyContains, undash } from './testing-utility';
 
 describe('cell-app-action', () => {
   const keyActions = Object.entries(actions);
@@ -14,8 +14,7 @@ describe('cell-app-action', () => {
     'should use consistent naming convention for name %s',
     (name) => {
       const relevantActions = keyActions.filter(
-        (kv) =>
-          kv[0].toLowerCase().includes(name) && kv[1].kind !== 'custom-action'
+        (kv) => keyContains(name)(kv) && kv[1].kind !== 'custom-action'
       );
       expect(relevantActions.length).toBeGreaterThanOrEqual(2);
       for (const [_, action] of relevantActions) {
@@ -32,9 +31,7 @@ describe('cell-app-action', () => {
   it.each(['add', 'update', 'delete', 'get', 'search'])(
     'should use consistent naming convention for operation %s',
     (name) => {
-      const relevantActions = keyActions.filter((kv) =>
-        kv[0].toLowerCase().includes(name)
-      );
+      const relevantActions = keyActions.filter(keyContains(name));
       expect(relevantActions.length).toBeGreaterThanOrEqual(2);
       for (const [_, action] of relevantActions) {
         expect(action.name).toContain(name);
