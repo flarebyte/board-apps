@@ -160,21 +160,22 @@ describe('cell-app-tables', () => {
             },
             Object {
               "flags": Array [
-                "optional",
-              ],
-              "name": "content-url",
-            },
-            Object {
-              "flags": Array [
-                "optional",
+                "searchable",
               ],
               "name": "title",
             },
             Object {
               "flags": Array [
                 "optional",
+                "searchable",
               ],
               "name": "description",
+            },
+            Object {
+              "flags": Array [
+                "optional",
+              ],
+              "name": "content-url",
             },
             Object {
               "flags": Array [
@@ -238,6 +239,32 @@ describe('cell-app-tables', () => {
           ],
           "name": "preference-table",
         },
+        "quest": Object {
+          "columns": Array [
+            Object {
+              "flags": Array [
+                "optional",
+              ],
+              "name": "id-urn",
+            },
+            Object {
+              "flags": Array [
+                "optional",
+              ],
+              "name": "account-urn",
+            },
+            Object {
+              "flags": Array [
+                "searchable",
+              ],
+              "name": "title",
+            },
+            Object {
+              "name": "topic-urn-list",
+            },
+          ],
+          "name": "quest-table",
+        },
         "row": Object {
           "columns": Array [
             Object {
@@ -271,6 +298,23 @@ describe('cell-app-tables', () => {
             },
           ],
           "name": "row-table",
+        },
+        "topic": Object {
+          "columns": Array [
+            Object {
+              "flags": Array [
+                "optional",
+              ],
+              "name": "id-urn",
+            },
+            Object {
+              "flags": Array [
+                "searchable",
+              ],
+              "name": "title",
+            },
+          ],
+          "name": "topic-table",
         },
       }
     `);

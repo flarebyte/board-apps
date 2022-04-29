@@ -73,15 +73,33 @@ const questDocManager: AppDocManager = {
   actions: [],
 };
 
-export const easyCellApp: WebApplication = {
-  name: 'easy-cell-app',
+// @link https://en.wikipedia.org/wiki/Allium
+
+export const easyCellAppAllium: WebApplication = {
+  name: 'easy-cell-app-allium',
   domain: 'easy-cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager],
 };
 
-export const premiumCellApp: WebApplication = {
-  name: 'premium-cell-app',
+export const premiumCellAppAllium: WebApplication = {
+  name: 'premium-cell-app-allium',
+  domain: 'cell.flarebyte.com',
+  ownership,
+  docManagers: [cellDocManager, profileDocManager, questDocManager],
+};
+
+// @link https://en.wikipedia.org/wiki/Monarda
+
+export const easyCellAppBergamot: WebApplication = {
+  name: 'easy-cell-app-bergamot',
+  domain: 'easy-cell.flarebyte.com',
+  ownership,
+  docManagers: [cellDocManager, profileDocManager],
+};
+
+export const premiumCellAppBergamot: WebApplication = {
+  name: 'premium-cell-app-bergamot',
   domain: 'cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager, questDocManager],
