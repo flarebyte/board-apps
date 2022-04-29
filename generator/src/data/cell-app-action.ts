@@ -140,6 +140,20 @@ const getPreference: AppAction = {
   table: tables.preference,
 };
 
+const searchQuest: AppAction = {
+  name: 'search-quest-action',
+  kind: 'search',
+  inboundMessage: messages.searchQuest,
+  table: tables.quest,
+};
+
+const getTopic: AppAction = {
+  name: 'get-topic-action',
+  kind: 'get',
+  inboundMessage: messages.getTopic,
+  table: tables.topic,
+};
+
 const updateCell: AppAction = {
   name: 'update-cell-action',
   kind: 'update',
@@ -206,6 +220,8 @@ export const actions = {
   updatePreference,
   deletePreference,
   getPreference,
+  searchQuest,
+  getTopic,
   updateCell,
   deleteCell,
   getCell,

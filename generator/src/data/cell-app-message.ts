@@ -171,6 +171,18 @@ const getPreference: AppMessage = {
   params: [],
 };
 
+const searchQuest: AppMessage = {
+  name: 'search-quest-message',
+  action: 'search-quest-action',
+  params: [{ name: 'text', validation: validations.shortText }],
+};
+
+const getTopic: AppMessage = {
+  name: 'get-topic-message',
+  action: 'get-topic-action',
+  params: [],
+};
+
 const updateCell: AppMessage = {
   name: 'update-cell-message',
   action: 'update-cell-action',
@@ -272,6 +284,8 @@ export const messages = {
   updatePreference,
   deletePreference,
   getPreference,
+  searchQuest,
+  getTopic,
   importJsonFormat,
   exportJsonFormat,
   exportCsvFormat,

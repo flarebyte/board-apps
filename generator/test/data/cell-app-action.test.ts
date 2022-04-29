@@ -1,8 +1,10 @@
 import { actions } from '../../src/data/cell-app-action';
+import { tables } from '../../src/data/cell-app-table';
 import { keyContains, undash } from './testing-utility';
 
 describe('cell-app-action', () => {
   const keyActions = Object.entries(actions);
+  const tableNames = Object.keys(tables)
   it('should have consistent keys and names', () => {
     for (const [key, action] of keyActions) {
       expect(undash(action.name).toLocaleLowerCase()).toContain(
@@ -10,13 +12,13 @@ describe('cell-app-action', () => {
       );
     }
   });
-  it.each(['column', 'row', 'horizon', 'cell', 'metadata', 'preference'])(
+  it.each(tableNames)(
     'should use consistent naming convention for name %s',
     (name) => {
       const relevantActions = keyActions.filter(
         (kv) => keyContains(name)(kv) && kv[1].kind !== 'custom-action'
       );
-      expect(relevantActions.length).toBeGreaterThanOrEqual(2);
+      expect(relevantActions.length).toBeGreaterThanOrEqual(1);
       for (const [_, action] of relevantActions) {
         expect(action.name).toContain(name);
         expect(action.inboundMessage.name).toContain(name);
@@ -32,7 +34,7 @@ describe('cell-app-action', () => {
     'should use consistent naming convention for operation %s',
     (name) => {
       const relevantActions = keyActions.filter(keyContains(name));
-      expect(relevantActions.length).toBeGreaterThanOrEqual(2);
+      expect(relevantActions.length).toBeGreaterThanOrEqual(1);
       for (const [_, action] of relevantActions) {
         expect(action.name).toContain(name);
         expect(action.inboundMessage.name).toContain(name);
