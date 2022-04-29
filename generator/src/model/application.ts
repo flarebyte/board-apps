@@ -54,6 +54,18 @@ export type AppAction =
       inboundMessage: AppMessage;
       table: AppTable;
       kind: 'get' | 'update' | 'add' | 'delete' | 'search';
+    }
+  | {
+      name: string;
+      kind: 'http-post';
+      route: string;
+      inboundMessage: AppMessage;
+    }
+  | {
+      name: string;
+      kind: 'http-get';
+      route: string;
+      inboundMessage: AppMessage;
     };
 
 export interface AppDocManager {
