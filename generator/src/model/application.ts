@@ -66,7 +66,37 @@ export type AppAction =
       kind: 'http-get';
       route: string;
       inboundMessage: AppMessage;
+    }
+  | {
+      name: string;
+      kind: 'npm-library';
+      libraryName: string;
+      libraryVersion: string;
+      inboundMessage: AppMessage;
     };
+
+export type AppInput = {
+  kind: 'button';
+  action: AppAction;
+};
+
+export interface AppView {
+  name: string;
+  state: string;
+  inputs: AppInput[];
+}
+
+export interface AppMainMenu {
+  login: boolean;
+  help: boolean;
+  statusBar: true;
+  userPreferences: boolean;
+}
+
+export interface AppFullInterface {
+  mainMenu: AppMainMenu;
+  views: AppView[];
+}
 
 export interface AppDocManager {
   name: string;

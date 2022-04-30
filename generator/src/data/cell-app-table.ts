@@ -48,7 +48,7 @@ const metadataTable: AppTable = {
 
 const preferenceTable: AppTable = {
   name: 'preference-table',
-  columns: [columns.themeUrn],
+  columns: [columns.themeUrn, columns.telemetryMode],
 };
 
 const questTable: AppTable = {

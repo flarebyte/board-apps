@@ -195,8 +195,24 @@ const exportJsonFormat: AppAction = {
 
 const exportCsvFormat: AppAction = {
   name: 'export-csv-format-action',
-  kind: 'custom-action',
+  kind: 'npm-library',
+  libraryName: 'cell-json-csv-converter',
+  libraryVersion: '0.1.0',
   inboundMessage: messages.exportCsvFormat,
+};
+
+const publishTelemetry: AppAction = {
+  name: 'publish-telemetry-action',
+  kind: 'http-post',
+  route: 'telemetry',
+  inboundMessage: messages.publishTelemetry,
+};
+
+const publishCellDoc: AppAction = {
+  name: 'publish-cell-doc-action',
+  kind: 'http-post',
+  route: 'cell-doc',
+  inboundMessage: messages.publishCellDoc,
 };
 export const actions = {
   addColumn,
@@ -229,4 +245,6 @@ export const actions = {
   importJsonFormat,
   exportJsonFormat,
   exportCsvFormat,
+  publishTelemetry,
+  publishCellDoc,
 };

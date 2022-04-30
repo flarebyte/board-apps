@@ -100,6 +100,10 @@ const themeUrn: AppColumn = {
 const topicUrnList: AppColumn = {
   name: 'topic-urn-list',
 };
+
+const telemetryMode: AppColumn = {
+  name: 'telemetry-mode',
+};
 export const dimRow: AppColumn[] = [id, title, description, comment, homepage];
 
 export const columns = {
@@ -127,4 +131,5 @@ export const columns = {
   copyrightYear,
   themeUrn,
   topicUrnList,
+  telemetryMode,
 };

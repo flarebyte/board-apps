@@ -258,6 +258,12 @@ const publishTelemetry: AppMessage = {
   ],
 };
 
+const publishCellDoc: AppMessage = {
+  name: 'publish-cell-doc-message',
+  action: 'publish-cell-doc-action',
+  params: [],
+};
+
 export const messages = {
   addColumn,
   updateColumn,
@@ -290,4 +296,5 @@ export const messages = {
   exportJsonFormat,
   exportCsvFormat,
   publishTelemetry,
+  publishCellDoc,
 };

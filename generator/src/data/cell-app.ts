@@ -54,6 +54,7 @@ const cellDocManager: AppDocManager = {
     actions.getMetadata,
     actions.updateCell,
     actions.deleteCell,
+    actions.publishCellDoc,
   ],
 };
 
@@ -62,7 +63,7 @@ const profileDocManager: AppDocManager = {
   filenameExtension: 'profile.json',
   zipFilenameExtension: 'profile.json.gz',
   document: profileDoc,
-  actions: [],
+  actions: [actions.publishTelemetry],
 };
 
 const questDocManager: AppDocManager = {
