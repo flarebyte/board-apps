@@ -1,5 +1,3 @@
-import { BubblegumAttributeKey } from './bubblegum-vocabulary';
-
 export interface Ownership {
   copyright: string;
   companyName: string;
@@ -78,18 +76,56 @@ export type AppAction =
     };
 
 // @link https://github.com/flarebyte/bubblegum-entity
-export interface AppInterfaceAttribute {
-  interfaceKey: BubblegumAttributeKey;
-  messageKey: string;
-}
+export type AppInterfaceAttribute =
+  | {
+      kind: 'text-area';
+      messageKey: string;
+    }
+  | {
+      kind: 'text-input';
+      messageKey: string;
+    }
+  | {
+      kind: 'url-input';
+      messageKey: string;
+    }
+  | {
+      kind: 'choice';
+      messageKey: string;
+      choices: string[];
+    };
 
-export interface AppInterfaceView {
-  name: string;
-  attributes: AppInterfaceAttribute[];
-  states: AppInterfaceAttribute[];
-}
+export type AppInterfaceView =
+  | {
+      kind: 'edit-table' | 'edit-cell';
+      name: string;
+      attributes: AppInterfaceAttribute[];
+      getAction: AppAction;
+      addAction: AppAction;
+      updateAction: AppAction;
+      deleteAction: AppAction;
+    }
+  | {
+      kind: 'edit-single-row-table';
+      name: string;
+      attributes: AppInterfaceAttribute[];
+      getAction: AppAction;
+      updateAction: AppAction;
+      deleteAction: AppAction;
+    }
+  | {
+      kind: 'search-table' | 'search-cell';
+      name: string;
+      attributes: AppInterfaceAttribute[];
+      searchAction: AppAction;
+    }
+  | {
+      kind: 'single-action';
+      name: string;
+      attributes: AppInterfaceAttribute[];
+      action: AppAction;
+    };
 export interface AppFullInterface {
-  userAttributes: AppInterfaceAttribute[];
   views: AppInterfaceView[];
 }
 

@@ -1,18 +1,25 @@
 import { AppInterfaceAttribute } from '../model/application';
-import { BubblegumAttributeKey } from '../model/bubblegum-vocabulary';
 
-const attr = (
-  messageKey: string,
-  interfaceKey: BubblegumAttributeKey
-): AppInterfaceAttribute => ({ interfaceKey, messageKey });
-
-const title = attr('title', 'ui:content');
-const description = attr('description', 'ui:content');
-const comment = attr('comment', 'ui:content');
-const homepage = attr('homepage', 'ui:content');
-const unit = attr('unit', 'ui:content');
-const mediaType = attr('media-type', 'ui:content');
-const text = attr('text', 'ui:content');
+const title: AppInterfaceAttribute = { messageKey: 'title', kind: 'text-area' };
+const description: AppInterfaceAttribute = {
+  messageKey: 'description',
+  kind: 'text-area',
+};
+const comment: AppInterfaceAttribute = {
+  messageKey: 'comment',
+  kind: 'text-area',
+};
+const homepage: AppInterfaceAttribute = {
+  messageKey: 'homepage',
+  kind: 'url-input',
+};
+const unit: AppInterfaceAttribute = { messageKey: 'unit', kind: 'text-input' };
+const mediaType: AppInterfaceAttribute = {
+  messageKey: 'mediaType',
+  kind: 'choice',
+  choices: ['text', 'markdown'],
+};
+const text: AppInterfaceAttribute = { messageKey: 'text', kind: 'text-area' };
 
 export const uiAttributes = {
   title,
