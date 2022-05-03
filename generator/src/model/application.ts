@@ -1,3 +1,5 @@
+import { BubblegumAttributeKey } from './bubblegum-vocabulary';
+
 export interface Ownership {
   copyright: string;
   companyName: string;
@@ -75,27 +77,20 @@ export type AppAction =
       inboundMessage: AppMessage;
     };
 
-export type AppInput = {
-  kind: 'button';
-  action: AppAction;
-};
+// @link https://github.com/flarebyte/bubblegum-entity
+export interface AppInterfaceAttribute {
+  interfaceKey: BubblegumAttributeKey;
+  messageKey: string;
+}
 
-export interface AppView {
+export interface AppInterfaceView {
   name: string;
-  state: string;
-  inputs: AppInput[];
+  attributes: AppInterfaceAttribute[];
+  states: AppInterfaceAttribute[];
 }
-
-export interface AppMainMenu {
-  login: boolean;
-  help: boolean;
-  statusBar: true;
-  userPreferences: boolean;
-}
-
 export interface AppFullInterface {
-  mainMenu: AppMainMenu;
-  views: AppView[];
+  userAttributes: AppInterfaceAttribute[];
+  views: AppInterfaceView[];
 }
 
 export interface AppDocManager {
