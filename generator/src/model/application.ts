@@ -124,10 +124,13 @@ export type AppInterfaceView =
       name: string;
       attributes: AppInterfaceAttribute[];
       action: AppAction;
+    }
+  | {
+      kind: 'remote-search';
+      name: string;
+      attributes: AppInterfaceAttribute[];
+      searchAction: AppAction;
     };
-export interface AppFullInterface {
-  views: AppInterfaceView[];
-}
 
 export interface AppDocManager {
   name: string;
@@ -142,4 +145,5 @@ export interface WebApplication {
   domain: string;
   ownership: Ownership;
   docManagers: AppDocManager[];
+  views: AppInterfaceView[];
 }

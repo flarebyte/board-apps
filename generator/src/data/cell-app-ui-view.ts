@@ -69,11 +69,19 @@ const exportCsvFormat: AppInterfaceView = {
   attributes: [uiAttributes.title],
   action: actions.exportCsvFormat,
 };
-export const uiView = {
+
+const searchQuest: AppInterfaceView = {
+  name: 'search-quest-view',
+  kind: 'remote-search',
+  attributes: [uiAttributes.title],
+  searchAction: actions.searchQuest,
+};
+export const uiViews = {
   editColumn,
   searchColumn,
   editPreference,
   importJsonFormat,
   exportJsonFormat,
   exportCsvFormat,
+  searchQuest,
 };

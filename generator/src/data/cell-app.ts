@@ -6,6 +6,7 @@ import {
 } from '../model/application';
 import { actions } from './cell-app-action';
 import { tables } from './cell-app-table';
+import { uiViews } from './cell-app-ui-view';
 
 const ownership: Ownership = {
   copyright: '(c) 2022 Flarebyte.com Ltd',
@@ -81,6 +82,14 @@ export const easyCellAppAllium: WebApplication = {
   domain: 'easy-cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager],
+  views: [
+    uiViews.editColumn,
+    uiViews.searchColumn,
+    uiViews.editPreference,
+    uiViews.importJsonFormat,
+    uiViews.exportJsonFormat,
+    uiViews.exportCsvFormat,
+  ],
 };
 
 export const premiumCellAppAllium: WebApplication = {
@@ -88,6 +97,14 @@ export const premiumCellAppAllium: WebApplication = {
   domain: 'cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager, questDocManager],
+  views: [
+    uiViews.editColumn,
+    uiViews.searchColumn,
+    uiViews.editPreference,
+    uiViews.importJsonFormat,
+    uiViews.exportJsonFormat,
+    uiViews.exportCsvFormat,
+  ],
 };
 
 // @link https://en.wikipedia.org/wiki/Monarda
@@ -97,6 +114,14 @@ export const easyCellAppBergamot: WebApplication = {
   domain: 'easy-cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager],
+  views: [
+    uiViews.editColumn,
+    uiViews.searchColumn,
+    uiViews.editPreference,
+    uiViews.importJsonFormat,
+    uiViews.exportJsonFormat,
+    uiViews.exportCsvFormat,
+  ],
 };
 
 export const premiumCellAppBergamot: WebApplication = {
@@ -104,4 +129,12 @@ export const premiumCellAppBergamot: WebApplication = {
   domain: 'cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager, questDocManager],
+  views: [
+    uiViews.editColumn,
+    uiViews.searchColumn,
+    uiViews.editPreference,
+    uiViews.importJsonFormat,
+    uiViews.exportJsonFormat,
+    uiViews.exportCsvFormat,
+  ],
 };
