@@ -1,5 +1,6 @@
 import { actions } from '../../src/data/cell-app-action';
 import { tables } from '../../src/data/cell-app-table';
+import { isTableRelatedAction } from '../../src/model/application';
 import { keyContains, undash } from './testing-utility';
 
 describe('cell-app-action', () => {
@@ -24,7 +25,7 @@ describe('cell-app-action', () => {
         expect(action.inboundMessage.name).toContain(name);
         expect(action.inboundMessage.action).toStrictEqual(action.name);
         expect(action.name).toContain('-action');
-        if (action.kind !== 'custom-action') {
+        if (isTableRelatedAction(action.kind)) {
           expect(action.table.name).toContain(name);
         }
       }

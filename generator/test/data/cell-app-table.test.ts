@@ -236,6 +236,9 @@ describe('cell-app-tables', () => {
               ],
               "name": "theme-urn",
             },
+            Object {
+              "name": "telemetry-mode",
+            },
           ],
           "name": "preference-table",
         },

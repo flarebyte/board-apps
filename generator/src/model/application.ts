@@ -75,6 +75,15 @@ export type AppAction =
       inboundMessage: AppMessage;
     };
 
+export const isTableRelatedAction = (
+  kind: unknown
+): kind is 'get' | 'update' | 'add' | 'delete' | 'search' =>
+  kind === 'get' ||
+  kind === 'update' ||
+  kind === 'add' ||
+  kind === 'delete' ||
+  kind === 'search';
+
 // @link https://github.com/flarebyte/bubblegum-entity
 export type AppInterfaceAttribute =
   | {
