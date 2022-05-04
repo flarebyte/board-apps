@@ -1,11 +1,10 @@
 import { actions } from '../../src/data/cell-app-action';
 import { tables } from '../../src/data/cell-app-table';
-import { isTableRelatedAction } from '../../src/model/application';
 import { keyContains, undash } from './testing-utility';
 
 describe('cell-app-action', () => {
   const keyActions = Object.entries(actions);
-  const tableNames = Object.keys(tables)
+  const tableNames = Object.keys(tables);
   it('should have consistent keys and names', () => {
     for (const [key, action] of keyActions) {
       expect(undash(action.name).toLocaleLowerCase()).toContain(
@@ -25,7 +24,13 @@ describe('cell-app-action', () => {
         expect(action.inboundMessage.name).toContain(name);
         expect(action.inboundMessage.action).toStrictEqual(action.name);
         expect(action.name).toContain('-action');
-        if (isTableRelatedAction(action.kind)) {
+        const isTableRelatedAction =
+          action.kind === 'get' ||
+          action.kind === 'update' ||
+          action.kind === 'add' ||
+          action.kind === 'delete' ||
+          action.kind === 'search';
+        if (isTableRelatedAction) {
           expect(action.table.name).toContain(name);
         }
       }
