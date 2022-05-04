@@ -1,6 +1,7 @@
 import {
   AppDocManager,
   AppDocument,
+  AppInterfaceView,
   Ownership,
   WebApplication,
 } from '../model/application';
@@ -77,19 +78,21 @@ const questDocManager: AppDocManager = {
 
 // @link https://en.wikipedia.org/wiki/Allium
 
+const coreViews: AppInterfaceView[] = [
+  uiViews.editColumn,
+  uiViews.searchColumn,
+  uiViews.editPreference,
+  uiViews.importJsonFormat,
+  uiViews.exportJsonFormat,
+  uiViews.exportCsvFormat,
+];
+
 export const easyCellAppAllium: WebApplication = {
   name: 'easy-cell-app-allium',
   domain: 'easy-cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager],
-  views: [
-    uiViews.editColumn,
-    uiViews.searchColumn,
-    uiViews.editPreference,
-    uiViews.importJsonFormat,
-    uiViews.exportJsonFormat,
-    uiViews.exportCsvFormat,
-  ],
+  views: [...coreViews],
 };
 
 export const premiumCellAppAllium: WebApplication = {
@@ -97,14 +100,7 @@ export const premiumCellAppAllium: WebApplication = {
   domain: 'cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager, questDocManager],
-  views: [
-    uiViews.editColumn,
-    uiViews.searchColumn,
-    uiViews.editPreference,
-    uiViews.importJsonFormat,
-    uiViews.exportJsonFormat,
-    uiViews.exportCsvFormat,
-  ],
+  views: [...coreViews],
 };
 
 // @link https://en.wikipedia.org/wiki/Monarda
@@ -114,14 +110,7 @@ export const easyCellAppBergamot: WebApplication = {
   domain: 'easy-cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager],
-  views: [
-    uiViews.editColumn,
-    uiViews.searchColumn,
-    uiViews.editPreference,
-    uiViews.importJsonFormat,
-    uiViews.exportJsonFormat,
-    uiViews.exportCsvFormat,
-  ],
+  views: [...coreViews],
 };
 
 export const premiumCellAppBergamot: WebApplication = {
@@ -129,12 +118,5 @@ export const premiumCellAppBergamot: WebApplication = {
   domain: 'cell.flarebyte.com',
   ownership,
   docManagers: [cellDocManager, profileDocManager, questDocManager],
-  views: [
-    uiViews.editColumn,
-    uiViews.searchColumn,
-    uiViews.editPreference,
-    uiViews.importJsonFormat,
-    uiViews.exportJsonFormat,
-    uiViews.exportCsvFormat,
-  ],
+  views: [...coreViews, uiViews.searchQuest],
 };
