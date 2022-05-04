@@ -33,6 +33,98 @@ const searchColumn: AppInterfaceView = {
   searchAction: actions.searchColumn,
 };
 
+const editRow: AppInterfaceView = {
+  name: 'edit-row-view',
+  kind: 'edit-table',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  getAction: actions.getRow,
+  addAction: actions.addRow,
+  updateAction: actions.updateRow,
+  deleteAction: actions.deleteRow,
+};
+
+const searchRow: AppInterfaceView = {
+  name: 'search-row-view',
+  kind: 'search-table',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  searchAction: actions.searchRow,
+};
+
+const editHorizon: AppInterfaceView = {
+  name: 'edit-horizon-view',
+  kind: 'edit-table',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  getAction: actions.getHorizon,
+  addAction: actions.addHorizon,
+  updateAction: actions.updateHorizon,
+  deleteAction: actions.deleteHorizon,
+};
+
+const searchHorizon: AppInterfaceView = {
+  name: 'search-horizon-view',
+  kind: 'search-table',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  searchAction: actions.searchHorizon,
+};
+
+const editCell: AppInterfaceView = {
+  name: 'edit-cell-view',
+  kind: 'edit-cell',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  getAction: actions.getCell,
+  updateAction: actions.updateCell,
+  deleteAction: actions.deleteCell,
+};
+
+const searchCell: AppInterfaceView = {
+  name: 'search-cell-view',
+  kind: 'search-table',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  searchAction: actions.searchCell,
+};
+
 const editPreference: AppInterfaceView = {
   name: 'edit-preference-view',
   kind: 'edit-single-row-table',
@@ -47,6 +139,36 @@ const editPreference: AppInterfaceView = {
   getAction: actions.getPreference,
   updateAction: actions.updatePreference,
   deleteAction: actions.deletePreference,
+};
+
+const editMetadata: AppInterfaceView = {
+  name: 'edit-metadata-view',
+  kind: 'edit-single-row-table',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  getAction: actions.getMetadata,
+  updateAction: actions.updateMetadata,
+  deleteAction: actions.deleteMetadata,
+};
+
+const getTopic: AppInterfaceView = {
+  name: 'get-topic-view',
+  kind: 'read-only-table',
+  attributes: [
+    uiAttributes.title,
+    uiAttributes.description,
+    uiAttributes.comment,
+    uiAttributes.homepage,
+    uiAttributes.mediaType,
+    uiAttributes.unit,
+  ],
+  getAction: actions.getTopic,
 };
 
 const importJsonFormat: AppInterfaceView = {
@@ -79,7 +201,15 @@ const searchQuest: AppInterfaceView = {
 export const uiViews = {
   editColumn,
   searchColumn,
+  editRow,
+  searchRow,
+  editHorizon,
+  searchHorizon,
+  editCell,
+  searchCell,
+  editMetadata,
   editPreference,
+  getTopic,
   importJsonFormat,
   exportJsonFormat,
   exportCsvFormat,

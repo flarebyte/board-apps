@@ -97,11 +97,19 @@ export type AppInterfaceAttribute =
 
 export type AppInterfaceView =
   | {
-      kind: 'edit-table' | 'edit-cell';
+      kind: 'edit-table';
       name: string;
       attributes: AppInterfaceAttribute[];
       getAction: AppAction;
       addAction: AppAction;
+      updateAction: AppAction;
+      deleteAction: AppAction;
+    }
+  | {
+      kind: 'edit-cell';
+      name: string;
+      attributes: AppInterfaceAttribute[];
+      getAction: AppAction;
       updateAction: AppAction;
       deleteAction: AppAction;
     }
@@ -112,6 +120,12 @@ export type AppInterfaceView =
       getAction: AppAction;
       updateAction: AppAction;
       deleteAction: AppAction;
+    }
+  | {
+      kind: 'read-only-table';
+      name: string;
+      attributes: AppInterfaceAttribute[];
+      getAction: AppAction;
     }
   | {
       kind: 'search-table' | 'search-cell';
